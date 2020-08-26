@@ -1,10 +1,10 @@
 #Tfng
 
-このプロジェクトは、[Angular CLI]（https://github.com/angular/angular-cli）バージョン10.0.6で生成されました。
+このプロジェクトは、[Angular CLI](https://github.com/angular/angular-cli)バージョン10.0.6で生成されました。
 
 ##開発サーバー
 
-開発サーバーに対して「ng serve」を実行します。 `http：// localhost：4200 /`に移動します。ソースファイルを変更すると、アプリは自動的に再読み込みされます。
+開発サーバーに対して「ng serve」を実行します。 `http://localhost:4200/`に移動します。ソースファイルを変更すると、アプリは自動的に再読み込みされます。
 
 ##コードの足場
 
@@ -16,12 +16,12 @@
 
 ##ユニットテストの実行
 
-[ng test]を実行して、[Karma]（https://karma-runner.github.io）を介して単体テストを実行します。
+[ng test]を実行して、[Karma](https://karma-runner.github.io)を介して単体テストを実行します。
 
 ##エンドツーエンドのテストを実行する
 
-[ng e2e]を実行して、[Protractor]（http://www.protractortest.org/）を介してエンドツーエンドのテストを実行します。
+[ng e2e]を実行して、[Protractor](http://www.protractortest.org/)を介してエンドツーエンドのテストを実行します。
 
 ##さらにヘルプ
 
-Angular CLIの詳細については、 `ng help`を使用するか、[Angular CLI README]（https://github.com/angular/angular-cli/blob/master/README.md）をご覧ください。
+Angular CLIの詳細については、 `ng help`を使用するか、[Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md)をご覧ください。
