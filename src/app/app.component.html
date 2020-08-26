@@ -1,0 +1,10 @@
+<div class="left-view">
+  <div><img></div>
+</div>
+<div class="right-view" *ngIf="decks.length!=0">
+  <app-maindeck [deck]="decks[0]"></app-maindeck>
+  <app-extradeck></app-extradeck>
+  <app-sidedeck></app-sidedeck>
+  <app-cardpool></app-cardpool>
+</div>
+<div *ngIf="cards.length==0" class="loading-cover">aaa</div>

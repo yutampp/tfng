@@ -1,0 +1,20 @@
+.left-view {
+  height: 100vh;
+  width: 33vw;
+  float: left;
+  background-color: #FAFFFF;
+}
+.right-view {
+  height: 100vh;
+  width: 67vw;
+  float: left;
+  background-color: #FFFAFF;
+}
+.loading-cover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #333333;
+}
