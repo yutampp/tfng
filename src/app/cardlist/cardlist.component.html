@@ -1,1 +1,15 @@
-<p>cardlist works!</p>
+<div class=container>
+  <div *ngFor="let card of cards"class=list-col>
+    <div class=imagebox
+     [style.background-image]="'url('+card.imageurl+')'">
+    </div>
+    <div class=card-description>
+        <div class=description-top>
+          <div class=cardname-box>
+            {{card.card_name}}
+          </div>
+        </div>
+        <div class=description-bottom>b</div>
+    </div>
+  </div>
+</div>

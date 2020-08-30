@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Deck } from '../deck';
 
 @Component({
   selector: 'app-maindeck',
@@ -6,7 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./maindeck.component.scss']
 })
 export class MaindeckComponent implements OnInit {
-  @Input() deck;
+  @Input() deck: Deck;
 
   constructor() { }
 

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Card } from '../card';
 
 @Component({
   selector: 'app-cardlist',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CardlistComponent implements OnInit {
 
+  @Input() cards:Card[];
+
   constructor() { }
 
   ngOnInit(): void {
+    setInterval(()=>console.log(this.cards),1000)
   }
 
 }

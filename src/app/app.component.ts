@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CardService } from './card.service';
 import { Card } from './card';
-
+import { Deck } from './deck';
 
 @Component({
   selector: 'app-root',
@@ -11,26 +11,22 @@ import { Card } from './card';
 export class AppComponent {
   title = 'tfng';
   cards: Card[] = [];
-  decks: any = [];
+  decks: Deck[] = [];
+  current_deck: Deck;
 
   constructor(private cardService: CardService ){ }
 
   ngOnInit() {
     this.get_carddata();
-    this.get_deckdata();
   }
 
   get_carddata() {
-    this.cardService.get_carddata().subscribe( data => {
+    this.cardService.get_card_and_deck()
+    .subscribe( (data:any) => {
       console.log(data);
-      this.cards = data;
-    });
-  }
-
-  get_deckdata() {
-    this.cardService.get_deckdata().subscribe( data => {
-      console.log(data);
-      this.decks = data;
+      this.cards = data.cards;
+      this.decks = data.decks;
+      this.current_deck = this.decks[0];
     });
   }
 }
