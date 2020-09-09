@@ -15,6 +15,8 @@ export class AppComponent {
   current_deck: Deck;
 
   constructor(private cardService: CardService ){ }
+    view_select = "main";
+    card_select: Card;
 
   ngOnInit() {
     this.get_carddata();
@@ -26,7 +28,8 @@ export class AppComponent {
       console.log(data);
       this.cards = data.cards;
       this.decks = data.decks;
-      this.current_deck = this.decks[0];
+      this.current_deck = this.decks[7];
+      this.card_select = this.cards[1];
     });
   }
 }

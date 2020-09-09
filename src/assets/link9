@@ -1,0 +1,449 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+
+
+
+	
+
+	
+	<meta http-equiv="x-ua-compatible" content="IE=10" >
+	<meta http-equiv="x-ua-compatible" content="IE=EmulateIE10" >
+
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<meta http-equiv="Content-Language" content="en">
+	<meta http-equiv="Content-Style-Type" content="text/css">
+	<meta http-equiv="Content-Script-Type" content="text/javascript">
+	<meta http-equiv="imagetoolbar" content="no">
+
+	<meta property="og:site_name" content="Yu-Gi-Oh! CARD DATABASE">
+
+	<meta property="og:image" content="http://www.db.yugioh-card.com/sns/logo_ocg_f.png" />
+	<meta property="og:type" content="product" />
+	<meta property="og:locale" content="en_US" />
+
+	<meta name="twitter:card" content="summary"/>
+
+	<meta name="twitter:image" content="http://www.db.yugioh-card.com/sns/logo_ocg_t.png" />
+	<script type="text/javascript" src="/yugiohdb/ga.js"></script>
+	<meta name="copyright" content="KONAMI">
+	<link rel="shortcut icon" href="external/image/yugioh.ico">
+	<link rel="apple-touch-icon" href="external/image/apple-touch-icon.png">
+
+	
+
+
+	
+
+
+	<meta name="keywords" content="Top | Yu-Gi-Oh! TRADING CARD GAME CARD DATABASE,KONAMI,yugioh,Yu-Gi-Oh,TCG,card,database,card,list,Forbidden,Limited,Semi-limited,Cards," lang="en" />
+	<meta name="description" content="Top | Yu-Gi-Oh! TRADING CARD GAME CARD DATABASE|The Yu-Gi-Oh! TCG Card Database is an official Konami Site for the Yu-Gi-Oh! Trading Card Game.<br>You can search through all Yu-Gi-Oh! TCG cards, check detailed rules, and view the Forbidden &amp; Limited List.<br>You can also register and manage cards and Decks you own via My Deck or search through Deck Recipes posted for public viewing as a reference for fine-tuning your Decks." />
+	<meta name="title" content="Top | Yu-Gi-Oh! TRADING CARD GAME CARD DATABASE" />
+
+	<meta property="og:title" content="Top | Yu-Gi-Oh! TRADING CARD GAME CARD DATABASE" />
+	<meta property="og:url" content="https://www.db.yugioh-card.com/yugiohdb/?request_locale=en"/>
+
+	<meta property="og:description" content="Top | Yu-Gi-Oh! TRADING CARD GAME CARD DATABASE|The Yu-Gi-Oh! TCG Card Database is an official Konami Site for the Yu-Gi-Oh! Trading Card Game.<br>You can search through all Yu-Gi-Oh! TCG cards, check detailed rules, and view the Forbidden &amp; Limited List.<br>You can also register and manage cards and Decks you own via My Deck or search through Deck Recipes posted for public viewing as a reference for fine-tuning your Decks." />
+
+	<meta name="twitter:title" content="Top | Yu-Gi-Oh! TRADING CARD GAME CARD DATABASE" />
+	<meta name="twitter:description" content="Top | Yu-Gi-Oh! TRADING CARD GAME CARD DATABASE|The Yu-Gi-Oh! TCG Card Database is an official Konami Site for the Yu-Gi-Oh! Trading Card Game.<br>You can search through all Yu-Gi-Oh! TCG cards, check detailed rules, and view the Forbidden &amp; Limited List.<br>You can also register and manage cards and Decks you own via My Deck or search through Deck Recipes posted for public viewing as a reference for fine-tuning your Decks." />
+
+	<meta name="twitter:url" content="https://www.db.yugioh-card.com/yugiohdb/?request_locale=en"/>
+
+	<title>Yu-Gi-Oh! TRADING CARD GAME - CARD DATABASE</title>
+
+
+
+<!--[if lt IE 9]>
+	<script type="text/javascript" src="external/html5/js/html5shiv.js"></script>
+<![endif]-->
+	<script type="text/javascript" src="external/jquery/jquery-1.7.2.js"></script>
+	<script type="text/javascript" src="external/jquery/jquery-ui-1.8.16.custom/js/jquery-ui-1.8.16.custom.min.js"></script>
+ 	<script type="text/javascript" src="external/jquery/jquery.dropkick/js/jquery.dropkick-1.0.0.js"></script>
+	<script type="text/javascript" src="external/js/common.js"></script>
+
+	<script type="text/javascript" src="external/jquery/scrolltopcontrol.js"></script>
+
+
+
+
+
+	<link type="text/css" rel="stylesheet" href="external/jquery/jquery-ui-1.8.16.custom/css/ui-lightness/jquery-ui-1.8.16.custom.css">
+	<link type="text/css" rel="stylesheet" href="external/jquery/jquery.dropkick/css/dropkick.css">
+	<link type="text/css" rel="stylesheet" href="external/css/common.css?20171030">
+
+<link rel="stylesheet" type="text/css" href="external/css/CardTop.css">
+
+	<script type="text/javascript">
+	<!--
+	$(function(){
+
+		
+		$('input:text').val('');
+		$('#stype').val('1');
+		$('#ctype').val('');
+		$('input:checkbox').prop('checked', false);
+ 		$('#othercon_and').prop('checked', false).closest('a').addClass('radio_off_left').removeClass('radio_on_left').find('img').attr('src', 'external/image/parts/check_off.png');
+		$('#othercon_or').prop('checked', true).closest('a').addClass('radio_on_right').removeClass('radio_off_right').find('img').attr('src', 'external/image/parts/check_on.png');
+
+		
+		
+		$('#stype').dropkick({
+			theme: 'stype_en'
+		});
+		$('#ctype').dropkick({
+			change: function (value, label) {
+				ChangeCtype(value, label);
+			}
+		});
+
+		
+		$('.update_title').click(function(){
+			$(this).next().toggle();
+		});
+
+	
+		var banner_list_size = $('#banner_list ul li').length;
+		var co2 = 0;
+		var val = 0;
+		var val2 = banner_list_size -1;
+
+		function ChangeBanner(){
+			//$("#title_msg").text(val);//確認用
+			$("#banner_list ul li").hide();
+			$("#banner_list ul li").eq(val).show().css({opacity: 0,marginLeft:"+50px"});
+			$("#banner_list ul li").eq(val).animate({marginLeft:"0",opacity: 1},{"duration": 500});
+			co2 = 0;
+
+		}
+
+		$('#banner_list #left_btn').click(function() {
+			val = val -1;
+			if(0 > val){
+				val = val2;
+			}
+			ChangeBanner();
+		});
+		$('#banner_list #right_btn').click(function() {
+			val++;
+			if(val > val2){
+				val = 0;
+			}
+			ChangeBanner();
+		});
+		if(banner_list_size >= 2){
+			$("#banner_list").addClass("multiple");
+			//alert(banner_list_size);
+			setInterval(function(){
+			if(co2 ==5){
+				$('#banner_list #right_btn').click();
+			}
+			co2++;
+				//$("#test").text(val);//確認用
+			},1000)
+		}
+	
+
+	});
+
+
+	//-->
+	</script>
+	<link rel="alternate" hreflang="x-default" title="遊戯王 オフィシャルカードゲーム デュエルモンスターズ - カードデータベース" href="https://www.db.yugioh-card.com/?request_locale=ja">
+	<link rel="alternate" hreflang="ja" title="遊戯王 オフィシャルカードゲーム デュエルモンスターズ - カードデータベース" href="https://www.db.yugioh-card.com/yugiohdb/?request_locale=ja">
+	<link rel="alternate" hreflang="en" title="Yu-Gi-Oh! TRADING CARD GAME - CARD DATABASE" href="https://www.db.yugioh-card.com/yugiohdb/?request_locale=en">
+	<link rel="alternate" hreflang="de" title="Yu-Gi-Oh! TRADING CARD GAME – KARTENDATENBANK" href="https://www.db.yugioh-card.com/yugiohdb/?request_locale=de">
+	<link rel="alternate" hreflang="fr" title="Yu-Gi-Oh! JEU DE CARTES À JOUER - BASE DE DONNÉES DE CARTES" href="https://www.db.yugioh-card.com/yugiohdb/?request_locale=fr">
+	<link rel="alternate" hreflang="it" title="Yu-Gi-Oh! GIOCO DI CARTE COLLEZIONABILI - DATABASE CARTE" href="https://www.db.yugioh-card.com/yugiohdb/?request_locale=it">
+	<link rel="alternate" hreflang="es" title="Yu-Gi-Oh! JUEGO DE CARTAS COLECCIONABLES - BASE DE DATOS DE CARTAS" href="https://www.db.yugioh-card.com/yugiohdb/?request_locale=es">
+	<link rel="alternate" hreflang="pt" title="Yu-Gi-Oh! ESTAMPAS ILUSTRADAS - BANCO DE DADOS DE CARDS" href="https://www.db.yugioh-card.com/yugiohdb/?request_locale=pt">
+	<link rel="alternate" hreflang="ko" title="Yu-Gi-Oh! TRADING CARD GAME - CARD DATABASE" href="https://www.db.yugioh-card.com/yugiohdb/?request_locale=ko">
+
+</head>
+
+
+
+
+<body>
+
+<div id="wrapper">
+	<header>
+		<div class="h1_set">Yu-Gi-Oh! TRADING CARD GAME - CARD DATABASE</div>
+		<div id="header_meta">
+			<a href="https://www.konami.com/games/?menu=1" target="_blank"><img src="external/image/logo_konami.png" alt="KONAMI" id="konami" class="ui-draggable"></a>
+
+
+	
+			<nav id="language">
+				<span>
+		
+		English
+		
+		
+		
+		
+		
+		
+				</span>
+				<ul>
+					<li><a href="javascript:ChangeLanguage('ja')" >日本語</a></li>
+					<li><a href="javascript:ChangeLanguage('en')" class="current">English</a></li>
+					<li><a href="javascript:ChangeLanguage('de')" >Deutsch</a></li>
+					<li><a href="javascript:ChangeLanguage('fr')" >Fran&ccedil;ais</a></li>
+					<li><a href="javascript:ChangeLanguage('it')" >Italiano</a></li>
+					<li><a href="javascript:ChangeLanguage('es')" >Espa&ntilde;ol</a></li>
+					<li><a href="javascript:ChangeLanguage('pt')" >Portugues</a></li>
+					<li><a href="javascript:ChangeLanguage('ko')" >한글</a></li>
+				</ul>
+			</nav>
+	
+
+		</div><!--#header_meta-->
+		<div id="header_menu">
+			<div id="main_logo">
+				<a href="/yugiohdb/"><img src="external/image/en/logo_tcg.png" alt="Yu-Gi-Oh! TRADING CARD GAME - CARD DATABASE" title="TOP"></a>
+			</div>
+			<nav>
+				<div id="menber_menu">
+				
+				</div><!--#menber_menu-->
+				<ul id="main_menu">
+					<li><a href="/yugiohdb/card_search.action"><img src="external/image/en/menu_btn_home.png" alt="CARD SEARCH"></a></li>
+					<li><a href="/yugiohdb/card_list.action"><img src="external/image/en/menu_btn_cardlist.png" alt="Card Lists"></a></li>
+					<li><a href="/yugiohdb/forbidden_limited.action"><img src="external/image/en/menu_btn_limitr.png" alt="Forbidden &amp; Limited List"></a></li>
+					
+					<li><a href="/yugiohdb/deck_search.action"><img src="external/image/en/menu_btn_decks.png" alt="Deck Search"></a></li>
+	
+					<li class="last"><a href="/yugiohdb/member_login.action"><img src="external/image/en/menu_btn_login.png" alt="Log in"></a></li>
+	
+	
+				</ul><!--#main_menu-->
+			</nav>
+		</div><!-- #header_menu-->
+	</header>
+
+	
+
+	
+		<nav id="title_msg" class="nav_home">
+			The Yu-Gi-Oh! TCG Card Database is an official Konami Site for the Yu-Gi-Oh! Trading Card Game.<br>You can search through all Yu-Gi-Oh! TCG cards, check detailed rules, and view Forbidden &amp; Limited Cards.<br>You can also register and manage cards and Decks you own via My Deck or search through Deck Recipes posted for public viewing as a reference for fine-tuning your Decks.
+		</nav>
+	
+
+
+
+
+
+	<article id="home">
+
+		<div id="article_body">
+
+<!--お試し 20170601-->
+	<div id="topmenu_set" class="wo">
+		<div class="menu_top">
+			<div class="menu_top_td"><div><a class="cards" href="/yugiohdb/card_search.action"><p class="menu_main_title">Card Search</p><p class="menu_main_sab">You can search through all Yu-Gi-Oh! TCG cards. You can also search for Decks containing a card via its Card Details page. Card info will be available starting from its release date.</p></a></div></div>
+			<div class="menu_top_td"><div><a class="cardl" href="/yugiohdb/card_list.action"><p class="menu_main_title">Card Lists</p><p class="menu_main_sab">You can view lists of Yu-Gi-Oh! TCG cards contained in different Packs or Boxes (Products, Perks, etc.).<br>The latest info will become available starting from their release date.<br></p></a></div></div>
+		</div>
+		<div class="menu_mid  en">
+			<div class="menu_top_td"><div><a class="Limit" href="/yugiohdb/forbidden_limited.action"><p class="menu_main_title">Forbidden &amp; Limited List</p><p class="menu_main_sab">This is a list of cards whose usage in official tournaments is either prohibited or limited in terms of the number of cards with the same name allowed in a Deck. Check out the latest version.</p></a></div></div>
+
+			<div class="menu_top_td"><div><a class="decks" href="/yugiohdb/deck_search.action"><p class="menu_main_title">Deck Search</p><p class="menu_main_sab">You can search through Decks that have been posted for public viewing.<br>You can search for a Tournament Championship Deck/Tournament Runner-Up Deck or Decks that contain a specific card.</p></a></div></div>
+
+
+
+			<div class="menu_top_td login_btn"><div><a class="myd" href="/yugiohdb/member_login.action"><p class="menu_main_title">My Deck</p><p class="menu_main_sab">You can register your Deck Recipes and post them to show to other users. (Speed Duel Decks and Duel Links Decks can be registered as well.)<br>You can use this feature to organize and manage your Decks and cards.</p></a></div></div>
+			<div class="menu_top_td login_btn"><div><a class="mylist" href="/yugiohdb/member_login.action"><p class="menu_main_title">My Card List</p><p class="menu_main_sab">You can manage lists of cards you own and cards you want as Owned Cards and Wish List, respectively. Go to the Card Details page after logging in to add more cards to your lists.</p></a></div></div>
+
+
+		</div>
+
+
+
+	</div>
+<!--お試し 20170601-->
+
+<!--シェア追加-->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.9";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+</script>
+<!--シェア追加-->
+	<table style="margin-top:5px;width:100%;text-align: center;">
+		<tr>
+			<td style="width:560px;text-align: left;">
+				<a id="deck_recipe" target="_blank" href="external/image/pdf/deck_en.pdf">Download Deck Recipe Form</a>
+			</td>
+			<td>
+				
+				<iframe src="//platform.twitter.com/widgets/tweet_button.html?url=http%3A%2F%2Fwww.db.yugioh-card.com%2Fyugiohdb%2Fexternal%2Fimage%2Fparts%2Flink_pc%2Flink9%26request_locale%3Den&amp;lang=en&amp;count=horizontal&amp;hashtags=YugiohDB_EN" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:100px; height:20px;" allowTransparency="true"></iframe>
+			</td>
+			<td>
+				
+				<iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.db.yugioh-card.com%2Fyugiohdb%2Fexternal%2Fimage%2Fparts%2Flink_pc%2Flink9%26request_locale%3Den&amp;send=false&amp;layout=button_count&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;locale=en_US" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:120px; height:20px;" allowTransparency="true"></iframe>
+			</td>
+			<td style="display: block;margin:0 10px 0 0;">
+				
+				<div class="fb-share-button" data-href="https://www.db.yugioh-card.com" data-layout="button_count" data-size="small" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fwww.db.yugioh-card.com%2Fyugiohdb%2Fexternal%2Fimage%2Fparts%2Flink_pc%2Flink9%26request_locale%3Den&amp;src=sdkpreparse">シェア</a></div>
+			</td>
+			<td>
+				<div class="line-it-button" style="display: none;" data-lang="en" data-type="share-a" data-url="http%3A%2F%2Fwww.db.yugioh-card.com%2Fyugiohdb%2Fexternal%2Fimage%2Fparts%2Flink_pc%2Flink9%26request_locale%3Den"></div>
+				<script src="https://d.line-scdn.net/r/web/social-plugin/js/thirdparty/loader.min.js" async="async" defer="defer"></script>
+			</td>
+		</tr>
+	</table>
+
+
+			<div id="update_list" class="radius_top" style="margin-top:20px;">
+				<table style="width:100%;">
+					<col width="100">
+					<col width="*">
+					<tr>
+						<th colspan="2">Updates</th>
+					</tr>
+	
+					<tr class="row">
+						<td valign="middle" class="t_center"><b>2019-04-16</b></td>
+						<td >
+							<div class="update_title " >
+								[Announcement : Application maintenance has been finished] Application maintenance during PM6:00 to PM6:30 on APLIL 15th, 2019(PDT) has been finished.
+							</div>
+
+						</td>
+					</tr>
+	
+					<tr class="row">
+						<td valign="middle" class="t_center"><b>2018-05-28</b></td>
+						<td >
+							<div class="update_title " >
+								Card Text for "<a href='card_search.action?ope=2&cid=13441' >Altergeist Manifestation</a>" has been updated.
+							</div>
+
+						</td>
+					</tr>
+	
+					<tr class="row">
+						<td valign="middle" class="t_center"><b>2018-05-28</b></td>
+						<td >
+							<div class="update_title " >
+								Card Text for "<a href='card_search.action?ope=2&cid=13417' >Altergeist Hexstia</a>" has been updated.
+							</div>
+
+						</td>
+					</tr>
+	
+					<tr class="row">
+						<td valign="middle" class="t_center"><b>2018-03-08</b></td>
+						<td >
+							<div class="update_title " >
+								Card Text for "<a href='card_search.action?ope=2&cid=10168'>Grandsoil the Elemental Lord</a>" has been updated.
+							</div>
+
+						</td>
+					</tr>
+	
+					<tr class="row">
+						<td valign="middle" class="t_center"><b>2018-03-08</b></td>
+						<td >
+							<div class="update_title " >
+								Card Text for "<a href='card_search.action?ope=2&cid=10168'>Grandsoil the Elemental Lord</a>" has been updated.
+							</div>
+
+						</td>
+					</tr>
+	
+					<tr class="row">
+						<td valign="middle" class="t_center"><b>2017-12-15</b></td>
+						<td >
+							<div class="update_title " >
+								[Announcement : Application Maintenance] "Yu-Gi-Oh! CARD DATABASE" will be temporarily out of service due to maintenance during PM8:30 to PM9:30 on DECEMBER 18th, 2017(PST) <br>* In some cases, the maintenance time may be shortened.
+							</div>
+
+						</td>
+					</tr>
+	
+					<tr class="row">
+						<td valign="middle" class="t_center"><b>2017-03-21</b></td>
+						<td >
+							<div class="update_title " >
+								[Announcement : Application maintenance has been finished] Application maintenance during PM6:00 to PM8:30 on MARCH 20th, 2017(PDT) has been finished.
+							</div>
+
+						</td>
+					</tr>
+	
+					<tr class="row">
+						<td valign="middle" class="t_center"><b>2017-03-16</b></td>
+						<td >
+							<div class="update_title " >
+								[Notice] From March 30, 2017(JST), the ID you use to log in to the Card Database will change from your "Card Game ID" to "KONAMI ID." You can register your "Card Game ID" to "KONAMI ID" to use all features of the Card Database.
+							</div>
+
+						</td>
+					</tr>
+	
+					<tr class="row">
+						<td valign="middle" class="t_center"><b>2017-02-22</b></td>
+						<td >
+							<div class="update_title " >
+								[Announcement : Application maintenance has been finished] Application maintenance during PM5:00 to PM6:30 on FEBRUARY 21th, 2017(PST) has been finished.
+							</div>
+
+						</td>
+					</tr>
+	
+					<tr class="row">
+						<td valign="middle" class="t_center"><b>2016-10-27</b></td>
+						<td >
+							<div class="update_title " >
+								[Announcement : Application maintenance has been finished] Application maintenance during PM4:00 to PM10:00 on OCTOBER 26th, 2016(PST) has been finished.
+							</div>
+
+						</td>
+					</tr>
+	
+				</table>
+
+			</div><!--#update_list-->
+
+
+		</div><!--#article_body-->
+	</article>
+
+
+
+
+
+
+	
+
+	<footer id="footer">
+		<div id="content_copyright">&copy;2020 Studio Dice/SHUEISHA, TV TOKYO, KONAMI</div>
+		<div id="footer_meta">
+			<nav>
+				<ul>
+					<li><a href="https://www.konami.com/games/inquiry/" target="_blank">Contact</a></li><!--
+				 --><li>|</li><!--
+				 --><li><a href="https://www.konami.com/siteinfo/en/" target="_blank">Terms of Use</a></li><!--
+				 --><li>|</li><!--
+				 --><li><a href="https://legal.konami.com/kde/privacy/en/" target="_blank">Privacy Notice (Analytics)</a></li><!--
+				 --><li>|</li><!--
+				 --><li><a href="https://legal.konami.com/games/id/en/" target="_blank">Privacy Notice (KONAMI ID)</a></li>
+				</ul>
+			</nav>
+			<small>&copy;2020 Konami Digital Entertainment</small>
+		</div>
+	</footer>
+</div><!--wrapper-->
+<noscript>Please enable JavaScript in your browser.</noscript>
+
+<script async type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=87&cb=1755514781"></script>
+</body>
+</html>
+

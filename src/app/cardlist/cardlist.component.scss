@@ -3,30 +3,84 @@
     overflow-y: scroll;
 }
 .list-col {
-    height: 80px;
-    padding: 3px;
+    height: 65px;
+    padding: 2px;
 }
 .imagebox {
     float: left;
     width: 55px;
     height: 100%;
-    background-color: blue;
+    box-shadow: 0px 0px 1px 2px;
     background-size: cover;
 }
 .card-description {
     float: left;
     width: calc(100% - 55px);
     height: 100%;
-    background-color: blue;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0px 0px 1px 2px;
 }
 .description-top {
-    height:50%;
+    height: 29px;
+    margin-left: 10px;
+    margin-right: 10px;
+    border-bottom: solid 1px gray;
 }
 .description-bottom {
-    height:50%;
+    height: 35px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 .cardname-box {
-    height:100%;
-    padding-left:5px;
-    background-color: #FFFF88;
+    height: 100%;
+    background-color: white;
+    line-height: 40px;
+    font-weight: bold;
+}
+.description-left-box {
+    float: left;
+    width: 33%;
+    height: 100%;
+    line-height: 35px;
+}
+.description-middle-box {
+    float: left;
+    width: 33%;
+    height: 100%;
+    line-height: 35px;
+}
+.description-right-box {
+    float: left;
+    width: 33%;
+    height: 100%;
+    line-height: 35px;
+}
+.attr-box {
+    width: 25px;
+    height:25px;
+    background-size: cover;
+    float: left;
+    margin: 5px 5px 5px 0px;
+}
+.type-box {
+    float: left;
+}
+.star-box {
+    width: 19px;
+    height: 19px;
+    background-size: cover;
+    float: left;
+    margin: 8px 2px 8px 5px;
+}
+.starnum-box {
+    float: left;
+}
+.status-name-inline {
+    font-size: 70%;
+}
+.status-num-inlinebox {
+    display: inline-block;
+    width: 45px;
+    text-align: right;
 }

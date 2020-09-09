@@ -1,14 +1,35 @@
 <div class="container">
-  <div class="left-view">a</div>
+  <div class="left-view">
+    <div class="cardimage-view">
+      <div class="cardimage-box"
+        [style.background-image]="'url('+card_select.imageurl+')'"></div>
+    </div>
+    <div class="carddetail-view">b</div>
+  </div>
   <div class="right-view">
     <div class="container">
-    <div class="header">header</div>
+    <div class="header">
+      <div class="header-left"></div>
+      <div class="header-menu">
+        <div class="deckname_box">a</div>
+        <div class="help-box">a</div>
+      </div>
+    </div>
       <div class="cardlist-view">
-        <app-maindeck [deck]="current_deck">
+        <app-maindeck 
+          *ngIf="view_select=='main'"
+          [deck]="current_deck">
         </app-maindeck>
-        <app-extradeck></app-extradeck>
-        <app-sidedeck></app-sidedeck>
-        <app-cardpool></app-cardpool>
+        <app-extradeck
+          *ngIf="view_select=='extra'">
+        </app-extradeck>
+        <app-sidedeck
+          *ngIf="view_select=='side'">
+        </app-sidedeck>
+        <app-cardpool
+          *ngIf="view_select=='cardpool'">
+        </app-cardpool>
+        <div class="footer">aa</div>
       </div>
     </div>
   </div>

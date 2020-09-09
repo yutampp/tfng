@@ -6,10 +6,77 @@
     <div class=card-description>
         <div class=description-top>
           <div class=cardname-box>
-            {{card.card_name}}
+            <span>
+              <ruby>
+                {{card.card_name}}
+              </ruby>
+            </span>
           </div>
         </div>
-        <div class=description-bottom>b</div>
+        <div class=description-bottom>
+          <div class=description-left-box>
+            <div class=attr-box
+              [style.background-image]="'url('+attr[card.monster_attr]+')'">
+            </div>
+            <div class=type-box
+              *ngIf="card.type!==null">
+              [{{card.type}}]
+            </div>
+            <div class=type-box
+              *ngIf="card.type==null">
+              [{{card.card_var}}]
+            </div>
+            <div class=star-box
+              *ngIf="card.card_level!==null"
+              [style.background-image]="'url('+level_icon+')'">
+            </div>
+            <div class=starnum-box
+              *ngIf="card.card_level!==null">
+              ×{{card.card_level}}
+            </div>
+            <div class=star-box
+              *ngIf="card.card_rank!==null"
+              [style.background-image]="'url('+rank_icon+')'">
+            </div>
+            <div class=starnum-box
+              *ngIf="card.card_rank!==null">
+              ×{{card.card_rank}}
+            </div>
+            <div class=star-box
+              *ngIf="card.link!==null"
+              [style.background-image]="'url('+link_icon+card.arrow+'.png)'">
+            </div>
+            <div class=starnum-box
+              *ngIf="card.link!==null">
+              リンク {{card.link}}
+            </div>
+          </div>
+          <div class=description-middle-box>
+            <span class=status-name-inline
+              *ngIf="card.atk!==null">
+              ATK
+            </span>
+            <div class=status-num-inlinebox
+              *ngIf="card.atk!==null">
+              {{card.atk}}
+            </div>
+            <span
+              *ngIf="card.def!==null">
+              &nbsp;/&nbsp;
+            </span>
+            <span class=status-name-inline
+              *ngIf="card.def!==null">
+              DEF
+            </span>
+            <div class=status-num-inlinebox
+              *ngIf="card.def!==null">
+              {{card.def}}
+            </div>
+          </div>
+          <div class=description-right-box>
+            aaaaa
+          </div>
+        </div>
     </div>
   </div>
 </div>
