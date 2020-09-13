@@ -9,6 +9,7 @@ import { ExtradeckComponent } from './extradeck/extradeck.component';
 import { SidedeckComponent } from './sidedeck/sidedeck.component';
 import { CardlistComponent } from './cardlist/cardlist.component';
 import { CardpoolComponent } from './cardpool/cardpool.component';
+import { CardViewComponent } from './card-view/card-view.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { CardpoolComponent } from './cardpool/cardpool.component';
     ExtradeckComponent,
     SidedeckComponent,
     CardlistComponent,
-    CardpoolComponent
+    CardpoolComponent,
+    CardViewComponent
   ],
   imports: [
     BrowserModule,

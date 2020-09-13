@@ -1,23 +1,36 @@
 <div class="container">
-  <div class="left-view">
-    <div class="cardimage-view">
-      <div class="cardimage-box"
-        [style.background-image]="'url('+card_select.imageurl+')'"></div>
-    </div>
-    <div class="carddetail-view">b</div>
-  </div>
+  <app-card-view [card]="selected_card"></app-card-view>
   <div class="right-view">
     <div class="container">
-    <div class="header">
-      <div class="header-left"></div>
-      <div class="header-menu">
-        <div class="deckname_box">a</div>
-        <div class="help-box">a</div>
+      <div class="header">
+        <div class="header-left"></div>
+        <div class="header-menu">
+          <div class="deckname_box">a</div>
+          <div class="help-box">a</div>
+        </div>
       </div>
-    </div>
+      <div class="main-extra-side-pool">
+        <div class="main-select">
+          <div class="x-select-box">デッキ</div>
+          <div class="x-select-num-box">0</div>
+        </div>
+        <div class="extra-select">
+          <div class="x-select-box">EX</div>
+          <div class="x-select-num-box">0</div>
+        </div>
+        <div class="side-select">
+          <div class="x-select-box">サイド</div>
+          <div class="x-select-num-box">0</div>
+        </div>
+        <div class="pool-select">
+          <div class="x-select-box">かばん</div>
+          <div class="x-select-num-box">0</div>
+        </div>
+      </div>
       <div class="cardlist-view">
         <app-maindeck 
           *ngIf="view_select=='main'"
+          (select_card)="receive_card($event)"
           [deck]="current_deck">
         </app-maindeck>
         <app-extradeck

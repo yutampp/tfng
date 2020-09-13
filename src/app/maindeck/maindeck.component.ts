@@ -1,5 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Deck } from '../deck';
+import { Card } from '../card';
 
 @Component({
   selector: 'app-maindeck',
@@ -8,6 +9,7 @@ import { Deck } from '../deck';
 })
 export class MaindeckComponent implements OnInit {
   @Input() deck: Deck;
+  @Output() select_card: EventEmitter<Card> = new EventEmitter();
 
   constructor() { }
 

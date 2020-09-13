@@ -1,0 +1,14 @@
+<div class="left-view">
+  <div class="cardimage-view">
+    <div class="cardimage-box"
+      [style.background-image]="'url('+card.imageurl+')'"></div>
+  </div>
+  <div class="carddetail-view">
+    <div class="card-status">ATK:{{card.atk}} DEF:{{card.def}}</div>
+    <div class="card-text">
+        <p class="card-name">{{card.card_name}}</p>
+        <p class="card-var">{{card.card_var}}</p>
+        <p>{{card.card_text}}</p>
+    </div>
+  </div>
+</div>

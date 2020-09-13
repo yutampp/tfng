@@ -1,1 +1,5 @@
-<app-cardlist [cards]="deck.extra_cards"></app-cardlist>
+<app-cardlist 
+[cards]="deck.main_cards"
+(select_card)="select_card.emit($event)"
+>
+</app-cardlist>

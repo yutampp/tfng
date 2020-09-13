@@ -1,34 +1,10 @@
 .container {
   background-color: transparent;
 }
-.left-view {
-  height: 100vh;
-  width: 30%;
-  float: left;
-  background-color: #FAFFFF;
-}
-.cardimage-view {
-  width: calc(100% - 10px);
-  height: 322px;
-  padding-top: 10px;
-  padding-left: 10px;
-  background-color: cyan;
-}
-.cardimage-box {
-  width: 214px;
-  height: 312px;
-  background-size: cover;
-}
-.carddetail-view {
-  width: 100%;
-  height: calc(100% - 332px);
-  background-color: magenta;
-}
 .right-view {
   height: 100vh;
-  width: 70%;
+  width: calc(100% - 300px);
   float: left;
-  background-color: #FFFAFF;
 }
 .loading-cover {
   position: absolute;
@@ -70,12 +46,78 @@
 }
 .cardlist-view {
   background-color: #AAAAAA;
-  height: calc(100vh - 103px);
+  height: calc(100vh - 40px - 40px - 40px - 3px);
+}
+.main-extra-side-pool {
+  height: 35px;
+  padding-top: 5px;
+}
+.main-select {
+  float: left;
+  width: 100px;
+  height: calc(35px - 1px);
+  background-color: gray;
+  border-top: solid 1px black;
+  border-left: solid 1px black;
+  border-right: solid 1px black;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+.extra-select {
+  float: left;
+  width: 100px;
+  height: calc(35px - 1px);
+  background-color: gray;
+  border-top: solid 1px black;
+  border-left: solid 1px black;
+  border-right: solid 1px black;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+.side-select {
+  float: left;
+  width: 100px;
+  height: calc(35px - 1px);
+  background-color: gray;
+  border-top: solid 1px black;
+  border-left: solid 1px black;
+  border-right: solid 1px black;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+.pool-select {
+  float: left;
+  width: 200px;
+  height: calc(35px - 1px);
+  background-color: gray;
+  border-top: solid 1px black;
+  border-left: solid 1px black;
+  border-right: solid 1px black;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+.x-select-box {
+  float: left;
+  line-height: calc(35px - 1px);
+  margin-left: 6px;
+  color: white;
+}
+.x-select-num-box {
+  float: left;
+  line-height: calc(35px - 1px - 8px);
+  margin: 4px;
+  background-color: white;
+  border-radius: 4px;
+  padding-right: 6px;
+  text-align: right;
 }
 .footer {
   background-color: gray;
-  height: 30px;
+  height: 40px;
   margin-bottom: 3px;
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
+  border-bottom: solid 1px black;
+  border-left: solid 1px black;
+  border-right: solid 1px black;
 }

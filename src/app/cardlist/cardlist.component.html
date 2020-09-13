@@ -1,6 +1,7 @@
 <div class=container>
   <div *ngFor="let card of cards"class=list-col>
     <div class=imagebox
+     (click) = "click_card(card)"
      [style.background-image]="'url('+card.imageurl+')'">
     </div>
     <div class=card-description>

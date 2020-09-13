@@ -13,10 +13,10 @@ export class AppComponent {
   cards: Card[] = [];
   decks: Deck[] = [];
   current_deck: Deck;
+  selected_card: Card;
 
   constructor(private cardService: CardService ){ }
     view_select = "main";
-    card_select: Card;
 
   ngOnInit() {
     this.get_carddata();
@@ -29,7 +29,11 @@ export class AppComponent {
       this.cards = data.cards;
       this.decks = data.decks;
       this.current_deck = this.decks[7];
-      this.card_select = this.cards[1];
+      this.selected_card = this.current_deck.main_cards[1];
     });
+  }
+
+  receive_card(card: Card) {
+    this.selected_card = card;
   }
 }

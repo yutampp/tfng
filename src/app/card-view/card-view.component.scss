@@ -1,0 +1,40 @@
+.left-view {
+    height: 100vh;
+    width: 300px;
+    float: left;
+}
+.cardimage-view {
+  width: calc(100% - 10px);
+  height: 322px;
+  padding-top: 10px;
+  padding-left: 10px;
+}
+.cardimage-box {
+  width: 214px;
+  height: 312px;
+  background-size: cover;
+}
+.carddetail-view {
+  width: 100%;
+  height: calc(100% - 332px);
+}
+.card-status {
+  height: 30px;
+}
+.card-text {
+  overflow-y: scroll;
+  height: calc(100% - 30px);
+  margin-left: 5px;
+  background-color: rgba(0,0,0,0.5);
+  color: white;
+}
+.card-status {
+    background-color:#E69841;
+    color: white;
+}
+.card-name {
+    color: yellow;
+}
+.card-var {
+    color: lime;
+}
