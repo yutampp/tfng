@@ -13,7 +13,13 @@
   width: 214px;
   height: 312px;
   background-size: cover;
+  animation: 0.5s fadeIn forwards;
 }
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
 .carddetail-view {
   width: 100%;
   height: calc(100% - 332px);

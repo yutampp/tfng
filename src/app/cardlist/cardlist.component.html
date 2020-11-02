@@ -1,7 +1,9 @@
 <div class=container>
-  <div *ngFor="let card of cards"class=list-col>
+  <div *ngFor="let card of cards"
+   class=list-col
+   (click) = "click_card(card)"
+   >
     <div class=imagebox
-     (click) = "click_card(card)"
      [style.background-image]="'url('+card.imageurl+')'">
     </div>
     <div class=card-description>
@@ -75,7 +77,9 @@
             </div>
           </div>
           <div class=description-right-box>
-            aaaaa
+            <button (click)="to_deck(card)">デッキへ</button>
+            <button (click)="to_side(card)">サイドへ</button>
+            <button (click)="to_kaban(card)">かばんへ</button>
           </div>
         </div>
     </div>

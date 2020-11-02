@@ -3,6 +3,8 @@ import { CardService } from './card.service';
 import { Card } from './card';
 import { Deck } from './deck';
 
+type View = 'main' | 'extra' | 'side' | 'pool';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -14,9 +16,9 @@ export class AppComponent {
   decks: Deck[] = [];
   current_deck: Deck;
   selected_card: Card;
+  view_select: View = "main";
 
   constructor(private cardService: CardService ){ }
-    view_select = "main";
 
   ngOnInit() {
     this.get_carddata();
@@ -28,12 +30,57 @@ export class AppComponent {
       console.log(data);
       this.cards = data.cards;
       this.decks = data.decks;
-      this.current_deck = this.decks[7];
-      this.selected_card = this.current_deck.main_cards[1];
+      this.current_deck = this.decks[0];
+      this.selected_card = this.current_deck.main_cards[0];
     });
   }
 
   receive_card(card: Card) {
     this.selected_card = card;
   }
+
+  click_main_select(){
+    this.view_select = "main";
+  }
+  
+  click_extra_select(){
+    this.view_select = "extra";
+  }
+  
+  click_side_select(){
+    this.view_select = "side";
+  }
+  
+  click_pool_select(){
+    this.view_select = "pool";
+  }
+
+  change_deck(){
+    const element = <HTMLSelectElement>document.getElementsByName("deck_select")[0];
+    this.current_deck = this.decks[element.selectedIndex];
+  }
+
+  add_card(card: Card) {
+    const ex:Boolean = /融合|シンクロ|エクシーズ|リンク/.test(card.card_var);
+    if(ex) {
+      this.current_deck.extra_cards.push(card);
+    }else {
+      this.current_deck.main_cards.push(card);
+    }
+    console.log(this.current_deck);
+  }
+
+  remove_card(card: Card) {
+    const ex:Boolean = /融合|シンクロ|エクシーズ|リンク/.test(card.card_var);
+    if(ex){
+      const cards:Card[] = this.current_deck.extra_cards.reverse();
+      this.current_deck.extra_cards = cards.filter(v=>card!==v || (card=null) ).reverse();
+    }else{
+      const cards:Card[] = this.current_deck.main_cards.reverse();
+      this.current_deck.main_cards = cards.filter(v=>card!==v || (card=null) ).reverse();
+    }
+    console.log(this.current_deck);
+  }
+
+
 }

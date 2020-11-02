@@ -3,27 +3,38 @@
   <div class="right-view">
     <div class="container">
       <div class="header">
-        <div class="header-left"></div>
         <div class="header-menu">
-          <div class="deckname_box">a</div>
+          <div class="deckname_box">
+            <select (change)="change_deck()" style="width:90%;" name="deck_select">
+              <option *ngFor="let deck of decks" (value)="deck" >{{deck.name}}</option>
+            </select>
+          </div>
           <div class="help-box">a</div>
         </div>
       </div>
       <div class="main-extra-side-pool">
-        <div class="main-select">
-          <div class="x-select-box">デッキ</div>
+        <div class="main-select"
+         (click)="click_main_select()"
+         >
+          <div class="x-select-box"><img src="/assets/str_deck.png" height="23"></div>
           <div class="x-select-num-box">0</div>
         </div>
-        <div class="extra-select">
-          <div class="x-select-box">EX</div>
+        <div class="extra-select"
+        (click)="click_extra_select()"
+        >
+          <div class="x-select-box"><img src="/assets/str_ex.png" height="23"></div>
           <div class="x-select-num-box">0</div>
         </div>
-        <div class="side-select">
-          <div class="x-select-box">サイド</div>
+        <div class="side-select"
+        (click)="click_side_select()"
+        >
+          <div class="x-select-box"><img src="/assets/str_side.png" height="23"></div>
           <div class="x-select-num-box">0</div>
         </div>
-        <div class="pool-select">
-          <div class="x-select-box">かばん</div>
+        <div class="pool-select"
+        (click)="click_pool_select()"
+        >
+          <div class="x-select-box"><img src="/assets/str_kaban.png" height="23"></div>
           <div class="x-select-num-box">0</div>
         </div>
       </div>
@@ -31,16 +42,34 @@
         <app-maindeck 
           *ngIf="view_select=='main'"
           (select_card)="receive_card($event)"
+          (add_card)="add_card($event)"
+          (remove_card)="remove_card($event)"
+          (add_card_to_side)="add_card_to_side($event)"
           [deck]="current_deck">
         </app-maindeck>
         <app-extradeck
-          *ngIf="view_select=='extra'">
+          *ngIf="view_select=='extra'"
+          (select_card)="receive_card($event)"
+          (add_card)="add_card($event)"
+          (remove_card)="remove_card($event)"
+          (add_card_to_side)="add_card_to_side($event)"
+          [deck]="current_deck">
         </app-extradeck>
         <app-sidedeck
-          *ngIf="view_select=='side'">
+          *ngIf="view_select=='side'"
+          (select_card)="receive_card($event)"
+          (add_card)="add_card($event)"
+          (remove_card)="remove_card($event)"
+          (add_card_to_side)="add_card_to_side($event)"
+          [deck]="current_deck">
         </app-sidedeck>
         <app-cardpool
-          *ngIf="view_select=='cardpool'">
+          *ngIf="view_select=='pool'"
+          (select_card)="receive_card($event)"
+          (add_card)="add_card($event)"
+          (remove_card)="remove_card($event)"
+          (add_card_to_side)="add_card_to_side($event)"
+          [cards]="cards">
         </app-cardpool>
         <div class="footer">aa</div>
       </div>

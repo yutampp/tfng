@@ -1,1 +1,8 @@
-<p>sidedeck works!</p>
+<app-cardlist 
+[cards]="deck.side_cards"
+(select_card)="select_card.emit($event)"
+(add_card)="add_card.emit($event)"
+(remove_card)="remove_card.emit($event)"
+(add_card_to_side)="add_card_to_side.emit($event)"
+>
+</app-cardlist>
