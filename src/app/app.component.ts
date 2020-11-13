@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CardService } from './card.service';
 import { Card } from './card';
 import { Deck } from './deck';
+import { CardWithIndex } from './card-with-index';
 
 type View = 'main' | 'extra' | 'side' | 'pool';
 
@@ -70,17 +71,34 @@ export class AppComponent {
     console.log(this.current_deck);
   }
 
-  remove_card(card: Card) {
+  remove_card(senddata: CardWithIndex) {
+    const card = senddata.card;
+    const index = senddata.index;
     const ex:Boolean = /融合|シンクロ|エクシーズ|リンク/.test(card.card_var);
     if(ex){
-      const cards:Card[] = this.current_deck.extra_cards.reverse();
-      this.current_deck.extra_cards = cards.filter(v=>card!==v || (card=null) ).reverse();
+      const cards:Card[] = this.current_deck.extra_cards;
+      //this.current_deck.extra_cards = cards.filter( (v,i) => i!=index);
     }else{
-      const cards:Card[] = this.current_deck.main_cards.reverse();
-      this.current_deck.main_cards = cards.filter(v=>card!==v || (card=null) ).reverse();
+      const cards:Card[] = this.current_deck.main_cards;
+      //this.current_deck.main_cards = cards.filter( (v,i) => i!=index);
     }
     console.log(this.current_deck);
   }
 
-
+  add_card_to_side(senddata: CardWithIndex){
+    const card = senddata.card;
+    const index = senddata.index;
+    const ex:Boolean = /融合|シンクロ|エクシーズ|リンク/.test(card.card_var);
+    if(ex){
+      const cards:Card[] = this.current_deck.extra_cards;
+      //this.current_deck.extra_cards = cards.filter( (v,i) => i!=index);
+      this.current_deck.side_cards.push(card);
+    }else{
+      const cards:Card[] = this.current_deck.main_cards;
+      //this.current_deck.main_cards = cards.filter( (v,i) => i!=index);
+      this.current_deck.side_cards.push(card);
+    }
+    
+  }
+  
 }

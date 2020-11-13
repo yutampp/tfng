@@ -1,5 +1,5 @@
 <div class=container>
-  <div *ngFor="let card of cards"
+  <div *ngFor="let card of cards;let i=index"
    class=list-col
    (click) = "click_card(card)"
    >
@@ -77,9 +77,9 @@
             </div>
           </div>
           <div class=description-right-box>
-            <button (click)="to_deck(card)">デッキへ</button>
-            <button (click)="to_side(card)">サイドへ</button>
-            <button (click)="to_kaban(card)">かばんへ</button>
+            <button (click)="to_deck(card,i)">デッキへ</button>
+            <button (click)="to_side(card,i)">サイドへ</button>
+            <button (click)="to_kaban(card,i)">かばんへ</button>
           </div>
         </div>
     </div>

@@ -1,4 +1,5 @@
 <app-cardlist 
+[locate]="'main'"
 [cards]="deck.main_cards"
 (select_card)="select_card.emit($event)"
 (add_card)="add_card.emit($event)"

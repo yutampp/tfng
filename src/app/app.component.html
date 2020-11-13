@@ -17,25 +17,25 @@
          (click)="click_main_select()"
          >
           <div class="x-select-box"><img src="/assets/str_deck.png" height="23"></div>
-          <div class="x-select-num-box">0</div>
+          <div class="x-select-num-box">{{current_deck.main_cards.length}}</div>
         </div>
         <div class="extra-select"
         (click)="click_extra_select()"
         >
           <div class="x-select-box"><img src="/assets/str_ex.png" height="23"></div>
-          <div class="x-select-num-box">0</div>
+          <div class="x-select-num-box">{{current_deck.extra_cards.length}}</div>
         </div>
         <div class="side-select"
         (click)="click_side_select()"
         >
           <div class="x-select-box"><img src="/assets/str_side.png" height="23"></div>
-          <div class="x-select-num-box">0</div>
+          <div class="x-select-num-box">{{current_deck.side_cards.length}}</div>
         </div>
         <div class="pool-select"
         (click)="click_pool_select()"
         >
           <div class="x-select-box"><img src="/assets/str_kaban.png" height="23"></div>
-          <div class="x-select-num-box">0</div>
+          <div class="x-select-num-box">{{cards.length}}</div>
         </div>
       </div>
       <div class="cardlist-view">

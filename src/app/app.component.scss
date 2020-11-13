@@ -90,7 +90,7 @@
 }
 .pool-select {
   float: left;
-  width: 100px;
+  width: 130px;
   height: calc(35px - 1px);
   background-color: gray;
   border-top: solid 1px black;
@@ -112,7 +112,8 @@
   background-color: white;
   border-radius: 6px;
   text-align: center;
-  width: 24px;
+  min-width: 24px;
+  max-width: 50px;
 }
 .footer {
   background-color: gray;

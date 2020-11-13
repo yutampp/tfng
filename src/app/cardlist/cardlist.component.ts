@@ -1,6 +1,9 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Card } from '../card';
+import { CardWithIndex } from '../card-with-index';
 import { ATTRIBUTE } from '../attribute_master';
+
+type Locate = "main" | "extra" | "side" | "cardpool";
 
 @Component({
   selector: 'app-cardlist',
@@ -14,11 +17,13 @@ export class CardlistComponent implements OnInit {
   pendulum_icon = "/assets/icon_pendulam.png";
   link_icon = "/assets/link";
 
-  @Input() cards:Card[];
+
+  @Input() cards: Card[];
+  @Input() locate: Locate;
   @Output() select_card: EventEmitter<Card> = new EventEmitter();
   @Output() add_card: EventEmitter<Card> = new EventEmitter();
-  @Output() remove_card: EventEmitter<Card> = new EventEmitter();
-  @Output() add_card_to_side: EventEmitter<Card> = new EventEmitter();
+  @Output() remove_card: EventEmitter<CardWithIndex> = new EventEmitter();
+  @Output() add_card_to_side: EventEmitter<CardWithIndex> = new EventEmitter();
 
   constructor() { }
 
@@ -30,16 +35,31 @@ export class CardlistComponent implements OnInit {
     this.select_card.emit(card);
   }
 
-  to_deck(card) {
+  to_deck(card,i) {
+    if(this.locate=="side"){
+      this.cards.splice(i,1);
+    }
     this.add_card.emit(card);
   }
 
-  to_kaban(card) {
-    this.remove_card.emit(card);
+  to_kaban(card,i) {
+    if(this.locate!="cardpool"){
+      this.cards.splice(i,1);
+    }
+    const senddata = new CardWithIndex();
+    senddata.card = card;
+    senddata.index = i;
+    this.remove_card.emit(senddata);
   }
   
-  to_side(card) {
-    this.add_card_to_side.emit(card);
+  to_side(card,i) {
+    if(this.locate!="cardpool" && this.locate!="side"){
+      this.cards.splice(i,1);
+    }
+    const senddata = new CardWithIndex();
+    senddata.card = card;
+    senddata.index = i;
+    this.add_card_to_side.emit(senddata);
   }
 
 }
